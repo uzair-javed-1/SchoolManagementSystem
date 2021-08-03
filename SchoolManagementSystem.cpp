@@ -14,8 +14,9 @@ const unsigned int totalMarks=100;
     private: 
         int  Class;
     
-        sections section;
+        
     public:
+        sections section =A;
         void getClass()
         {
                 while (true)
@@ -29,30 +30,73 @@ const unsigned int totalMarks=100;
                 else
                     cout << " you can get admission in only 1 to 10 classes \n ";
                     cout << "please choose from 1 to 10 \n ";
+                    cin >> Class;
 
                 }
 
          }
 
-        void getSection()
-        {
-
-        }
+    
 
     };
-        class Student {
+        class Student : public Class {
             private:
              
-            unsigned  int rollno[max_students_class];
+            unsigned  int rollno=0;
               
            subjects  subject;
 
         public:
-            void setStudentInformation()
+           
+
+            void getSection()
             {
+                
+                    if (rollno <= max_students_class && section == A)
+                    {
+                        int n = 7;
+                        section = A;
+                        rollno++;
 
+                    }
+                    if (rollno > max_students_class && section == A)
+                    {
+                        section = B;
+
+                    }
+                    else if (rollno > max_students_class && section == B)
+                    {
+                        section = C;
+
+                    }   
+                    else if (rollno > max_students_class && section == C)
+                    {
+                        section = D;
+
+                    }  
+                    else if (rollno > max_students_class && section == D)
+                    {
+                        section = E;
+
+                    }  
+                    else if (rollno > max_students_class && section ==E)
+                    {
+                        section = F;
+
+                    }
+                    else if (rollno > max_students_class && section == F)
+                    {
+                        section = G;
+
+                    }
+
+                
+                }
+
+            void getRollNo()
+            {
+                rollno = ++rollno;
             }
-
 
 
         };
@@ -85,6 +129,7 @@ const unsigned int totalMarks=100;
            
 
             }
+            void StudentPersonelInformation()
 
         };
 void printSteric()
