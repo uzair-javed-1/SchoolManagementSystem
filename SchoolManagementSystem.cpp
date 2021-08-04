@@ -100,19 +100,28 @@ const unsigned int totalMarks=100;
 
 
         };
-        class StudentPersonelInformation : public Student
+
+        ////////////////////
+        // for student personel information 
+        class StudentPersonelInformation : public Student ,public StudentPreviousRecord
         {
         private:
-            string name;
+            string fname; //first Name
+            string lname; //first Name
+
             int age;
             char gender;
             string sex;
+            string address;
+            double phone_no;
 
         public:
             void setStudentPersonelInformation()
             {
-                cout << " Enter your name ";
-                cin >> name;
+                cout << " Enter your first name ";
+                cin >> fname;
+                cout << " Enter your Last name ";
+                cin >> lname;
                 cout << " Enter your age ";
                 cin >> age;
                 cout << " Enter your gender \"press m for male \" or \" f for female \"";
@@ -123,13 +132,57 @@ const unsigned int totalMarks=100;
                     sex = "Male";
 
                 else
-
                     sex = "Female";
 
+                cout << "Enter your address ";
+                cin >> address;
+                cout << "Enter your phone no or fathers mobile no";
+                cin >> phone_no;
 
 
             }
+            
+            void showStudentPersonelInformation()
+            {
+                cout << "  first name  : " << fname << endl;
+                cout << "  Last name  : " << lname << endl;
+                cout << "  Age : " << age << endl; 
+                cout << "  Gender : " << sex << endl;
+                cout << "  phone _no : " << phone_no << endl;
+                cout << "  Address : " << address << endl;
+            }
+
+
         };
+
+        ////////////////////////
+
+        class StudentPreviousRecord : public Class{
+        private:
+            int previousClassMarks;
+            int previousClass;
+            char passingGrade;
+            
+        public:
+            void getPreviousRecord()
+            {
+                cout << " Enter your previous class ";
+                cin >> previousClass;
+                cout << " Enter your previous class Marks";
+                cin >> previousClassMarks;
+               cout << " Enter your previous class Grade";
+               cin >> passingGrade;
+             
+
+            }
+
+            
+
+
+        };
+            
+
+        ////////////////////////
 void printSteric()
 {
     for (int j = 0; j < 45; j++)
@@ -150,19 +203,24 @@ class Management {
 
 int main()
 {
+    char ch;
     int input;
-    printdash();
-    cout << " Student Record Management System \n";
-    printdash();
-
-    printSteric();
-    cout << "  Administration Panel    \t\t\" press 1 \" \n";
-    cout << "  Student login  \t \t \" press 2 \" \n";
-    cout << "   student  register / sign up  \" press 3 \" \n";
-    printSteric();
  
-    while (true)
+ 
+    do
     {
+        /// /// ////to print statements to show user what to do? /// /// ///
+        printdash();
+        cout << " Student Record Management System \n";
+        printdash();
+
+        printSteric();
+        cout << "  Administration Panel    \t\t\" press 1 \" \n";
+        cout << "  Student login  \t \t \" press 2 \" \n";
+        cout << "   student  register / sign up  \" press 3 \" \n";
+        printSteric();
+
+        /// /// //// /// /// ///
         cout << "\b\" press 1 or 2 or 3 \" \n";
         cin >> input;
 
@@ -170,20 +228,20 @@ int main()
         {
 
             cout << " you are on Administration portal ";
-            break;
 
         }
         else if( input == 2)
         { 
             cout << " you are on student portal ";
-            break;
         }
 
         else if (input == 3)
         {
             cout << " you are on Sign up  page \n  ";
             cout << " input what we want you to enter : so lets start \n  ";
-            break;
+            StudentPersonelInformation  newStudent;
+            newStudent.setStudentPersonelInformation();
+            
 
 
         }
@@ -193,8 +251,10 @@ int main()
 
         }
 
+        cout << "\n do you want to recall this program \n if yes than \" press y \" otherwise \"press n \"" << endl;
+        cin >> ch;
 
-    }
+    } while (ch == 'y' || ch == 'Y');
    
     
     return 0;
