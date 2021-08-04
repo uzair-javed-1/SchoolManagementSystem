@@ -1,1 +1,2 @@
 C:\Users\Front\source\repos\SchoolManagementSystem\Debug\SchoolManagementSystem.exe
+D:\uzair projects\school system\SchoolManagementSystem\Debug\SchoolManagementSystem.exe

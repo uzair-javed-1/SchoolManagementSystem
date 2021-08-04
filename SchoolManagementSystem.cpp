@@ -102,7 +102,7 @@ const unsigned int totalMarks=100;
         };
         class StudentPersonelInformation : public Student
         {
-        private : 
+        private:
             string name;
             int age;
             char gender;
@@ -112,25 +112,23 @@ const unsigned int totalMarks=100;
             void setStudentPersonelInformation()
             {
                 cout << " Enter your name ";
-                cin >> name; 
+                cin >> name;
                 cout << " Enter your age ";
                 cin >> age;
                 cout << " Enter your gender \"press m for male \" or \" f for female \"";
                 cin >> gender;
-             
+
                 if (gender == 'm' or gender == 'M')
-                
+
                     sex = "Male";
-                
-                else 
-                  
+
+                else
+
                     sex = "Female";
-                
-           
+
+
 
             }
-            void StudentPersonelInformation()
-
         };
 void printSteric()
 {
@@ -148,6 +146,8 @@ class Management {
 
 
 };
+
+
 int main()
 {
     int input;
@@ -156,9 +156,9 @@ int main()
     printdash();
 
     printSteric();
-    cout << "  Admin Panel    \t\t\" press 1 \" \n";
-    cout << "  Studnet login  \t \t \" press 2 \" \n";
-    cout << "   student  register / signup  \" press 3 \" \n";
+    cout << "  Administration Panel    \t\t\" press 1 \" \n";
+    cout << "  Student login  \t \t \" press 2 \" \n";
+    cout << "   student  register / sign up  \" press 3 \" \n";
     printSteric();
  
     while (true)
@@ -169,19 +169,19 @@ int main()
         if(input == 1)
         {
 
-            cout << " you are on admin potal ";
+            cout << " you are on Administration portal ";
             break;
 
         }
         else if( input == 2)
         { 
-            cout << " you are on student potal ";
+            cout << " you are on student portal ";
             break;
         }
 
         else if (input == 3)
         {
-            cout << " you are on signupt page \n  ";
+            cout << " you are on Sign up  page \n  ";
             cout << " input what we want you to enter : so lets start \n  ";
             break;
 
