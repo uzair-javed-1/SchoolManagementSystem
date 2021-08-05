@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <string>
 using namespace std;
 const unsigned int max_students_class = 40;
 enum sections {A,B,C,D,E,F,G};
@@ -10,6 +11,7 @@ const unsigned int classes = 10;
 enum subjects {English,Urdu,Math,Chemistry,Computer,Drawing,Pysics,GeneralScience};
 const unsigned int totalMarks=100;
 int n = 0;
+int size_max = 30;
 
     class Class {
     private: 
@@ -21,31 +23,37 @@ int n = 0;
         
     public:
         sections section =A;
-        void getClass()
+        void setClass()
         {
-            while (true)
+            do
             {
                 cout << " In which class do you want to study? ";
                 cin >> Class;
                 if (Class < classes)
                 {
-
+                    cout << "\n you are applying for class " << Class <<endl;
+                    cout << " lets fill application process " <<endl;
                     break;
                 }
-                else
+                else 
                 {
-                    cout << " In which class do you want to study? ";
                     cout << " you can get admission in only 1 to 10 classes \n ";
                     cout << "please choose from 1 to 10 \n ";
-                    cin >> Class;
-
+                    cin >> Class;            
                 }
+              
 
-            }
+            } while (true);
         }
 
         //
-        void setSection()
+        int showClass()
+        {
+            return Class;
+        }
+
+        //
+        sections setSection()
         {
             while (true)
             {
@@ -57,12 +65,14 @@ int n = 0;
                     section = B;
                     n = 0;
                     break;
+                    return section;
                 }
                 else
                 { 
                 section = B;
                 
                 rollno[n++] = n;
+                return section;
                 }
 
             }
@@ -73,10 +83,12 @@ int n = 0;
                 {
                     section = C;
                     n = 0;
+                    return section;
                     break;
                 }
                 else
                 section = B;
+                return section;
 
             }
             else if (n > max_students_class && section == B)
@@ -86,10 +98,12 @@ int n = 0;
                 {
                     section = D;
                     n = 0;
+                    return section;
                     break;
                 }
                 else
                 section = C;
+                return section;
 
             }
             else if (n > max_students_class && section == C)
@@ -99,11 +113,12 @@ int n = 0;
                 {
                     section = E;
                     n = 0;
+                    return section;
                     break;
                 }
                 else
                 section = D;
-
+                return section;
             }
             else if (n > max_students_class && section == D)
             {
@@ -112,9 +127,11 @@ int n = 0;
                 {
                     section = F;
                     n = 0;
+                return section;
                     break;
                 }
                 else
+                return section;
                 section = E;
 
             }
@@ -125,10 +142,12 @@ int n = 0;
                 {
                     section = G;
                     n = 0;
+                return section;
                     break;
                 }
                 else
                 section = F;
+                return section;
 
             }
             else if (n > max_students_class && section == F)
@@ -143,6 +162,7 @@ int n = 0;
                 }
                 else
                 section = G;
+				return section;
 
             }
 
@@ -194,7 +214,7 @@ int n = 0;
 
         int getRollNo()
         {
-            rollno[n] = n;
+           return rollno[n] = n;
         }
 
 
@@ -209,13 +229,16 @@ int n = 0;
         }
     
         //
-        void payedFees()
+       void payedFees()
         {
             cout << " Thanks for paying fees : " << fees[n] <<endl;
-            cout << "\n your admission process is done ";
+            cout << "\n your admission process is done " << " in class " << Class;
             cout << "\n classes start from next week \n ";
+            cout << "\n We will happy to see you in class ! \n ";
+          
 
 
+            
         }
 
 
@@ -228,14 +251,14 @@ int n = 0;
 
 
         ////////////////////
-        // for student personel information 
+        // for student personal information 
         class StudentAdmission  : public Class
         {
         private:
             string fname; //first Name
             string lname; //first Name
 
-            // for student personel information
+            // for student personal information
             int age;
             char gender;
             string sex;
@@ -250,30 +273,31 @@ int n = 0;
         public:
             void setStudentPersonelInformation()
             {
-                cout << " Enter your first name ";
+                cout << " Enter your first name : ";
                 cin >> fname;
-                cout << " Enter your Last name ";
+                cout << " Enter your Last name : ";
                 cin >> lname;
-                cout << " Enter your age ";
+                cout << " Enter your age : ";
                 cin >> age;
-                cout << " Enter your gender \"press m for male \" or \" f for female \"";
+                cout << " Enter your gender \"press m for male \" or \" f for female \" : ";
                 cin >> gender;
 
                 if (gender == 'm' or gender == 'M')
 
-                    sex = "Male";
+                    sex = " Male ";
 
                 else
-                    sex = "Female";
+                    sex = " Female ";
 
-                cout << "Enter your address ";
-                cin >> address;
-                cout << "Enter your phone no or fathers mobile no";
+                cout << "Enter your address  : ";
+                getline(cin, address);
+           
+                cout << "Enter your phone no or fathers mobile no : ";
                 cin >> phone_no;
 
 
             }
-            
+            //
             void showStudentPersonelInformation()
             {
                 cout << "  first name  : " << fname << endl;
@@ -338,7 +362,7 @@ int main()
 {
     char ch;
     int input;
- 
+    
  
     do
     {
@@ -374,9 +398,56 @@ int main()
             cout << " input what we want you to enter : so lets start \n  ";
             StudentAdmission Students;
             Students.setStudentPersonelInformation();
+            Students.getPreviousRecord();
+            Students.setClass();
+            Students.setSection();
+            Students.payedFees();
+            cout << " your roll no is : ";
+            Students.getRollNo();
+            
+          
+            
+            while(true)
+            { 
+                cout << "\n check your information which you provide to us \n";
+            cout << " if you want to change something so press y " <<endl  ;
+
+            cout << endl;
+            cout<< endl;
+            printdash();
+            Students.showStudentPersonelInformation();
             Students.showPreviousRecord();
-            Students.getClass();
-            Students
+            Students.payedFees();
+            Students.showSection();
+            cout << "\n your roll no is : " << Students.getRollNo() << endl;
+            
+            printSteric();
+            
+            cin >> ch;
+            switch (ch)
+            {
+                case 'y':
+				{	
+					Students.setStudentPersonelInformation();
+					Students.getPreviousRecord();
+					Students.setClass();
+					Students.setSection();
+					Students.payedFees();
+					cout << " your roll no is : ";
+					Students.getRollNo();
+					break;
+                }
+
+                case 'n':
+                {
+                    break;
+                }
+                default:
+                    break;
+            }
+            }
+
+            Students.showStudentPersonelInformation();
             
 
 

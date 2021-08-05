@@ -1,3 +1,4 @@
 ﻿  SchoolManagementSystem.cpp
-D:\uzair javed\CPlusPlusProject\New folder\SchoolManagementSystem\SchoolManagementSystem.cpp(375,21): warning C4129: ' ': unrecognized character escape sequence
-  SchoolManagementSystem.vcxproj -> D:\uzair javed\CPlusPlusProject\New folder\SchoolManagementSystem\Debug\SchoolManagementSystem.exe
+E:\Git Projects\SchoolManagementSystem\SchoolManagementSystem\SchoolManagementSystem.cpp(457,21): warning C4129: ' ': unrecognized character escape sequence
+E:\Git Projects\SchoolManagementSystem\SchoolManagementSystem\SchoolManagementSystem.cpp(171): warning C4715: 'Class::setSection': not all control paths return a value
+  SchoolManagementSystem.vcxproj -> E:\Git Projects\SchoolManagementSystem\SchoolManagementSystem\Debug\SchoolManagementSystem.exe
