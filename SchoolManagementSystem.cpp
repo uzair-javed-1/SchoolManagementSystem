@@ -52,15 +52,15 @@ int n = 0;
             if (n <= max_students_class && section == A)
             {
                 n++;
-                if(n==40)
+                if(n>40)
                 {
-
+                    section = B;
                     n = 0;
                     break;
                 }
                 else
                 { 
-                section = A;
+                section = B;
                 
                 rollno[n++] = n;
                 }
@@ -69,9 +69,9 @@ int n = 0;
             if (n > max_students_class && section == A)
             {
                 n++;
-                if (n == 40)
+                if (n > 40)
                 {
-
+                    section = C;
                     n = 0;
                     break;
                 }
@@ -82,9 +82,9 @@ int n = 0;
             else if (n > max_students_class && section == B)
             {
                 n++;
-                if (n == 40)
+                if (n > 40)
                 {
-
+                    section = D;
                     n = 0;
                     break;
                 }
@@ -95,9 +95,9 @@ int n = 0;
             else if (n > max_students_class && section == C)
             {
                 n++;
-                if (n == 40)
+                if (n > 40)
                 {
-
+                    section = E;
                     n = 0;
                     break;
                 }
@@ -108,9 +108,9 @@ int n = 0;
             else if (n > max_students_class && section == D)
             {
                 n++;
-                if (n == 40)
+                if (n > 40)
                 {
-
+                    section = F;
                     n = 0;
                     break;
                 }
@@ -121,9 +121,9 @@ int n = 0;
             else if (n > max_students_class && section == E)
             {
                 n++;
-                if (n == 40)
+                if (n > 40)
                 {
-
+                    section = G;
                     n = 0;
                     break;
                 }
@@ -134,11 +134,12 @@ int n = 0;
             else if (n > max_students_class && section == F)
             {
                 n++;
-                if (n == 40)
+                if (n > 40)
                 {
 
-                    n = 0;
-                    break;
+                    cout << " you can't get admission now \n sorry , because seats are full  \n";
+                    cout << " you can take admission in next time . Best of luck \n  \n";
+                    
                 }
                 else
                 section = G;
@@ -220,7 +221,7 @@ int n = 0;
 
         ////////////////////
         // for student personel information 
-        class StudentPersonelInformation : public StudentAdmission,public StudentPreviousRecord
+        class StudentPersonelInformation : public StudentAdmission
         {
         private:
             string fname; //first Name
@@ -304,19 +305,6 @@ int n = 0;
 
         ////////////////////////
 
-        class StudentPreviousRecord : public Class{
-        private:
-            int previousClassMarks;
-            int previousClass;
-            char passingGrade;
-            
-        public:
-           
-
-            
-
-
-        };
             
 
         ////////////////////////
