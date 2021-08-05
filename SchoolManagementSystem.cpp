@@ -151,14 +151,9 @@ int n = 0;
         } //function body
 
      //
-       
-        void getRollNo()
-        {
-            rollno[n] = n;
-        }
+      
 
 
-        //
         void showSection()
         {
             if (section == A)
@@ -192,36 +187,49 @@ int n = 0;
         }
          
         //
-        void payfees()
+
+
+
+        //
+
+        int getRollNo()
+        {
+            rollno[n] = n;
+        }
+
+
+        //
+
+        void payYourFees()
         {
             cout << "Pay your fees first \" 5000 rs \" to get admission \n";
+            cout << "Enter amount : ";
+            cin >> fees[n];
 
         }
     
+        //
+        void payedFees()
+        {
+            cout << " Thanks for paying fees : " << fees[n] <<endl;
+            cout << "\n your admission process is done ";
+            cout << "\n classes start from next week \n ";
+
+
+        }
+
+
+        //
 
     };
 
-    // // // //
-
-        class StudentAdmission : public Class {
-            private:
-             
-            
-              
-           subjects  subject;
-
-        public:
-           
-
-           
-          
 
 
-        };
+
 
         ////////////////////
         // for student personel information 
-        class StudentPersonelInformation : public StudentAdmission
+        class StudentAdmission  : public Class
         {
         private:
             string fname; //first Name
@@ -364,8 +372,11 @@ int main()
         {
             cout << " you are on Sign up  page \n  ";
             cout << " input what we want you to enter : so lets start \n  ";
-            StudentPersonelInformation  newStudent;
-            newStudent.setStudentPersonelInformation();
+            StudentAdmission Students;
+            Students.setStudentPersonelInformation();
+            Students.showPreviousRecord();
+            Students.getClass();
+            Students
             
 
 
