@@ -9,111 +9,234 @@ enum your_classes { one, two, three, four, five, sex, seven, eight, nine, ten };
 const unsigned int classes = 10;
 enum subjects {English,Urdu,Math,Chemistry,Computer,Drawing,Pysics,GeneralScience};
 const unsigned int totalMarks=100;
+int n = 0;
 
     class Class {
     private: 
-        int  Class;
-    
+        unsigned int  Class;
+        unsigned  int rollno[max_students_class];
+        double fees[max_students_class]; // fees for per student in a class
+
+        
         
     public:
         sections section =A;
         void getClass()
         {
-                while (true)
-                {
+            while (true)
+            {
                 cout << " In which class do you want to study? ";
-                cin >> Class; 
+                cin >> Class;
                 if (Class < classes)
                 {
+
                     break;
                 }
                 else
+                {
+                    cout << " In which class do you want to study? ";
                     cout << " you can get admission in only 1 to 10 classes \n ";
                     cout << "please choose from 1 to 10 \n ";
                     cin >> Class;
 
                 }
 
-         }
+            }
+        }
 
+        //
+        void setSection()
+        {
+            while (true)
+            {
+            if (n <= max_students_class && section == A)
+            {
+                n++;
+                if(n==40)
+                {
+
+                    n = 0;
+                    break;
+                }
+                else
+                { 
+                section = A;
+                
+                rollno[n++] = n;
+                }
+
+            }
+            if (n > max_students_class && section == A)
+            {
+                n++;
+                if (n == 40)
+                {
+
+                    n = 0;
+                    break;
+                }
+                else
+                section = B;
+
+            }
+            else if (n > max_students_class && section == B)
+            {
+                n++;
+                if (n == 40)
+                {
+
+                    n = 0;
+                    break;
+                }
+                else
+                section = C;
+
+            }
+            else if (n > max_students_class && section == C)
+            {
+                n++;
+                if (n == 40)
+                {
+
+                    n = 0;
+                    break;
+                }
+                else
+                section = D;
+
+            }
+            else if (n > max_students_class && section == D)
+            {
+                n++;
+                if (n == 40)
+                {
+
+                    n = 0;
+                    break;
+                }
+                else
+                section = E;
+
+            }
+            else if (n > max_students_class && section == E)
+            {
+                n++;
+                if (n == 40)
+                {
+
+                    n = 0;
+                    break;
+                }
+                else
+                section = F;
+
+            }
+            else if (n > max_students_class && section == F)
+            {
+                n++;
+                if (n == 40)
+                {
+
+                    n = 0;
+                    break;
+                }
+                else
+                section = G;
+
+            }
+
+            }//for while 
+
+        } //function body
+
+     //
+       
+        void getRollNo()
+        {
+            rollno[n] = n;
+        }
+
+
+        //
+        void showSection()
+        {
+            if (section == A)
+            {
+                cout << " A ";
+            }  
+            else if (section == B)
+            {
+                cout << " B ";
+            }  
+            else if (section == C)
+            {
+                cout << " C ";
+            }  
+            else if (section == D)
+            {
+                cout << " D ";
+            } 
+            else if (section == E)
+            {
+                cout << " E ";
+            }  
+            else if (section == F)
+            {
+                cout << " F ";
+            }
+            else if (section == G)
+            {
+                cout << " G ";
+            }
+        }
+         
+        //
+        void payfees()
+        {
+            cout << "Pay your fees first \" 5000 rs \" to get admission \n";
+
+        }
     
 
     };
-        class Student : public Class {
+
+    // // // //
+
+        class StudentAdmission : public Class {
             private:
              
-            unsigned  int rollno=0;
+            
               
            subjects  subject;
 
         public:
            
 
-            void getSection()
-            {
-                
-                    if (rollno <= max_students_class && section == A)
-                    {
-                        int n = 7;
-                        section = A;
-                        rollno++;
-
-                    }
-                    if (rollno > max_students_class && section == A)
-                    {
-                        section = B;
-
-                    }
-                    else if (rollno > max_students_class && section == B)
-                    {
-                        section = C;
-
-                    }   
-                    else if (rollno > max_students_class && section == C)
-                    {
-                        section = D;
-
-                    }  
-                    else if (rollno > max_students_class && section == D)
-                    {
-                        section = E;
-
-                    }  
-                    else if (rollno > max_students_class && section ==E)
-                    {
-                        section = F;
-
-                    }
-                    else if (rollno > max_students_class && section == F)
-                    {
-                        section = G;
-
-                    }
-
-                
-                }
-
-            void getRollNo()
-            {
-                rollno = ++rollno;
-            }
+           
+          
 
 
         };
 
         ////////////////////
         // for student personel information 
-        class StudentPersonelInformation : public Student ,public StudentPreviousRecord
+        class StudentPersonelInformation : public StudentAdmission,public StudentPreviousRecord
         {
         private:
             string fname; //first Name
             string lname; //first Name
 
+            // for student personel information
             int age;
             char gender;
             string sex;
             string address;
             double phone_no;
+
+            // for  previous class marks
+            int previousClassMarks;
+            int previousClass;
+            char passingGrade;
 
         public:
             void setStudentPersonelInformation()
@@ -152,6 +275,30 @@ const unsigned int totalMarks=100;
                 cout << "  Address : " << address << endl;
             }
 
+            ////
+
+            void getPreviousRecord()
+            {
+                cout << " Enter your previous class ";
+                cin >> previousClass;
+                cout << " Enter your previous class Marks";
+                cin >> previousClassMarks;
+                cout << " Enter your previous class Grade";
+                cin >> passingGrade;
+
+
+            }
+
+            //
+            void showPreviousRecord()
+            {
+                cout << "\nprevious class :"<< previousClass;
+                cout << " \nEnter your previous class Marks "<< previousClassMarks;
+                cout << "\nprevious class Grade : "<<passingGrade<<endl;
+
+            }
+
+
 
         };
 
@@ -164,17 +311,7 @@ const unsigned int totalMarks=100;
             char passingGrade;
             
         public:
-            void getPreviousRecord()
-            {
-                cout << " Enter your previous class ";
-                cin >> previousClass;
-                cout << " Enter your previous class Marks";
-                cin >> previousClassMarks;
-               cout << " Enter your previous class Grade";
-               cin >> passingGrade;
-             
-
-            }
+           
 
             
 
