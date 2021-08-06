@@ -6,7 +6,8 @@
 #include <cstdlib>
 #include <string>
 using namespace std;
-const unsigned int max_students_class = 40;
+const unsigned int max_students_class = 4; // total students is 40 in each class but
+// i am changing now for checking performance .. to 4
 enum sections {A,B,C,D,E,F,G};
 enum your_classes { one, two, three, four, five, sex, seven, eight, nine, ten };
 const unsigned int classes = 10;
@@ -54,7 +55,7 @@ void clear_screen()
 
     class Class {
     private: 
-        unsigned int  Class;
+        unsigned int  class_no;
         unsigned  int rollno[max_students_class];
         double fees[max_students_class]; // fees for per student in a class
 
@@ -67,29 +68,29 @@ void clear_screen()
            
 
                 cout << " In which class do you want to study? ";
-                cin >> Class;
+                cin >> class_no;
                 do {
-                if (Class < classes)
+                if (class_no < classes)
                 {
-                    cout << "\n you are applying for class " << Class <<endl;
+                    cout << "\n you are applying for class " << class_no <<endl;
                     cout << " lets fill application process " <<endl;
                     break;
                 }
                else {
                     cout << " you can get admission in only 1 to 10 classes \n ";
                     cout << "please choose from 1 to 10 \n ";
-                    cin >> Class;            
+                    cin >> class_no;
                 }
               
               
 
-            } while (Class > classes); // do while loop closed
+            } while (class_no > classes); // do while loop closed
         }
 
         //
         int showClass()
         {
-            return Class;
+            return class_no;
         }
 
         //
@@ -99,101 +100,96 @@ void clear_screen()
             {
             if (n <= max_students_class && section == A)
             {
-                n++;
-                if(n>40)
+                if(n>4) // change 40 to 4 for testing purpose
                 {
                     section = B;
-                    n = 0;
+                    n = 1;
                     break;
-                    return section;
                 }
                 else
                 { 
-                section = B;
+                section = A;
+                n++;
+          
                 
-                rollno[n++] = n;
-                return section;
                 }
 
             }
-            if (n > max_students_class && section == A)
+            else  if (n > max_students_class && section == A)
             {
-                n++;
-                if (n > 40)
+                if (n > 4)
                 {
                     section = C;
-                    n = 0;
-                    return section;
+                    n = 1;
                     break;
                 }
                 else
+                {
                 section = B;
-                return section;
-
+                n++;
+                }
             }
             else if (n > max_students_class && section == B)
             {
-                n++;
-                if (n > 40)
+                if (n > 4)
                 {
                     section = D;
-                    n = 0;
-                    return section;
+                    n = 1;
                     break;
                 }
                 else
+                {
                 section = C;
-                return section;
-
+                n++;
+                }
             }
             else if (n > max_students_class && section == C)
             {
-                n++;
-                if (n > 40)
+                if (n > 4)
                 {
                     section = E;
-                    n = 0;
-                    return section;
+                    n = 1;
                     break;
                 }
                 else
+                {
                 section = D;
-                return section;
+                n++;
+                }
             }
             else if (n > max_students_class && section == D)
             {
-                n++;
-                if (n > 40)
+                if (n > 4)
                 {
                     section = F;
-                    n = 0;
-                return section;
+                    n = 1;
                     break;
                 }
                 else
-                return section;
+                {
                 section = E;
+				n++;
+			    }
 
             }
             else if (n > max_students_class && section == E)
             {
-                n++;
-                if (n > 40)
+                if (n > 4)
                 {
                     section = G;
-                    n = 0;
-                return section;
+                    n = 1;
                     break;
                 }
                 else
+                {
                 section = F;
-                return section;
+				n++;
+		    	}
 
             }
             else if (n > max_students_class && section == F)
             {
-                n++;
-                if (n > 40)
+                if (n > 4)
                 {
 
                     cout << " you can't get admission now \n sorry , because seats are full  \n";
@@ -201,10 +197,13 @@ void clear_screen()
                     
                 }
                 else
+                {
                 section = G;
-				return section;
+				n++;
+				}
 
             }
+            return section;
 
             }//for while 
 
@@ -272,9 +271,9 @@ void clear_screen()
        void payedFees()
         {
             cout << " Thanks for paying fees : " << fees[n] <<endl;
-            cout << "\n your admission process is done " << " in class " << Class;
+            cout << "\n your admission process is done " << " in class :" << class_no;
             cout << "\n classes start from next week \n ";
-            cout << "\n We will happy to see you in class ! \n ";
+            cout << "\n We will happy to see you in class : " << class_no << endl;
           
 
 
@@ -329,10 +328,10 @@ void clear_screen()
                 else
                     sex = " Female ";
 
-                cout << "Enter your address  : ";
+                cout << " Enter your address  : ";
                 getline(cin, address);
            
-                cout << "Enter your phone no or fathers mobile no : ";
+                cout << " Enter your phone no or fathers mobile no : ";
                 cin >> phone_no;
 
 
@@ -352,11 +351,11 @@ void clear_screen()
 
             void getPreviousRecord()
             {
-                cout << " Enter your previous class ";
+                cout << " Enter your previous class : ";
                 cin >> previousClass;
-                cout << " Enter your previous class Marks";
+                cout << " Enter your previous class Marks : ";
                 cin >> previousClassMarks;
-                cout << " Enter your previous class Grade";
+                cout << " Enter your previous class Grade : ";
                 cin >> passingGrade;
 
 
@@ -365,8 +364,8 @@ void clear_screen()
             //
             void showPreviousRecord()
             {
-                cout << "\nprevious class :"<< previousClass;
-                cout << " \nEnter your previous class Marks "<< previousClassMarks;
+                cout << "\nprevious class : "<< previousClass;
+                cout << " \nEnter your previous class Marks : "<< previousClassMarks;
                 cout << "\nprevious class Grade : "<<passingGrade<<endl;
 
             }
@@ -416,7 +415,7 @@ int main()
         if(input == 1)
         {
             system("CLS");
-            system("CLS");
+           
 
             cout << " you are on Administration portal ";
 
@@ -425,7 +424,7 @@ int main()
         else if( input == 2)
         { 
             system("CLS");
-            system("CLS");
+          
 
             cout << " you are on student portal ";
         }
@@ -433,18 +432,18 @@ int main()
         else if (input == 3)
         {
             system("CLS");
-            cout << endl;
-            system("CLS");
-            system("CLS");
-            cout << endl;
+           
+			printdash();
+			printSteric();
+    
 
             cout << " you are on Sign up  page \n  ";
-            cout << " input what we want you to enter : so lets start \n\n \n ";
-            printdash();
-            printdash;
+			printSteric();
             cout << endl;
+            printdash;
+            cout << " input what we want you to enter : so lets start \n\n \n ";
             StudentAdmission Students;
-            cout << " Enter your personell Information \n";
+            cout << " Enter your personal Information \n";
             printSteric();
             cout << endl;
             Students.setStudentPersonelInformation();
@@ -514,8 +513,7 @@ int main()
                 {
                     break;
                 }
-                default:
-                    break;
+              
             }
             }
 

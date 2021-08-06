@@ -1,5 +1,0 @@
-﻿  SchoolManagementSystem.cpp
-E:\Git Projects\SchoolManagementSystem\SchoolManagementSystem.cpp(444,13): warning C4551: function call missing argument list
-E:\Git Projects\SchoolManagementSystem\SchoolManagementSystem.cpp(528,21): warning C4129: ' ': unrecognized character escape sequence
-E:\Git Projects\SchoolManagementSystem\SchoolManagementSystem.cpp(211): warning C4715: 'Class::setSection': not all control paths return a value
-  SchoolManagementSystem.vcxproj -> E:\Git Projects\SchoolManagementSystem\x64\Debug\SchoolManagementSystem.exe
