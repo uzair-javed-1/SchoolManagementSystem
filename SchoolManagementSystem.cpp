@@ -2,6 +2,8 @@
 //
 
 #include <iostream>
+#include<iomanip>
+#include <cstdlib>
 #include <string>
 using namespace std;
 const unsigned int max_students_class = 40;
@@ -12,6 +14,43 @@ enum subjects {English,Urdu,Math,Chemistry,Computer,Drawing,Pysics,GeneralScienc
 const unsigned int totalMarks=100;
 int n = 0;
 int size_max = 30;
+
+////////////////////////
+
+
+
+void printSteric() // to print steric
+{
+    for (int j = 0; j < 45; j++)
+        cout << "*";
+    cout << endl;
+}
+////////////////////////
+void printdash() // to print dashes
+{
+    for (int j = 0; j < 45; j++)
+        cout << "-";
+    cout << endl;
+}
+////////////////////////    
+
+void clear_screen()
+{
+#if defined(WIN32)||defined(_WIN32)||defined(WIN86)
+    system("clear");
+ 
+
+  #endif    defined(WIN64)||defined(_WIN64)
+    system("clear");
+    
+    
+    system("clear");
+
+
+}
+
+
+/////
 
     class Class {
     private: 
@@ -25,25 +64,26 @@ int size_max = 30;
         sections section =A;
         void setClass()
         {
-            do
-            {
+           
+
                 cout << " In which class do you want to study? ";
                 cin >> Class;
+                do {
                 if (Class < classes)
                 {
                     cout << "\n you are applying for class " << Class <<endl;
                     cout << " lets fill application process " <<endl;
                     break;
                 }
-                else 
-                {
+               else {
                     cout << " you can get admission in only 1 to 10 classes \n ";
                     cout << "please choose from 1 to 10 \n ";
                     cin >> Class;            
                 }
               
+              
 
-            } while (true);
+            } while (Class > classes); // do while loop closed
         }
 
         //
@@ -335,23 +375,9 @@ int size_max = 30;
 
         };
 
-        ////////////////////////
-
-            
 
         ////////////////////////
-void printSteric()
-{
-    for (int j = 0; j < 45; j++)
-        cout << "*";
-        cout << endl;
-}
-void printdash()
-{
-    for (int j = 0; j < 45; j++)
-        cout << "-";
-    cout << endl;
-}
+        ////////////////////////
 class Management {
 
 
@@ -362,10 +388,16 @@ int main()
 {
     char ch;
     int input;
-    
- 
+
+    clear_screen();
+    cout <<  flush;//flush forces the printing to the screen before it clears
     do
     {
+    system("CLS");
+    system("CLS");
+        
+        cout << endl;
+
         /// /// ////to print statements to show user what to do? /// /// ///
         printdash();
         cout << " Student Record Management System \n";
@@ -383,32 +415,66 @@ int main()
 
         if(input == 1)
         {
+            system("CLS");
+            system("CLS");
 
             cout << " you are on Administration portal ";
+
 
         }
         else if( input == 2)
         { 
+            system("CLS");
+            system("CLS");
+
             cout << " you are on student portal ";
         }
 
         else if (input == 3)
         {
+            system("CLS");
+            cout << endl;
+            system("CLS");
+            system("CLS");
+            cout << endl;
+
             cout << " you are on Sign up  page \n  ";
-            cout << " input what we want you to enter : so lets start \n  ";
+            cout << " input what we want you to enter : so lets start \n\n \n ";
+            printdash();
+            printdash;
+            cout << endl;
             StudentAdmission Students;
+            cout << " Enter your personell Information \n";
+            printSteric();
+            cout << endl;
             Students.setStudentPersonelInformation();
+            printSteric();
+
+            cout << "\nEnter your Previous Record\n";
+            cout << endl;
             Students.getPreviousRecord();
+
+            printSteric();
+            cout << endl;
+
             Students.setClass();
             Students.setSection();
-            Students.payedFees();
+            printdash();
+            cout << endl;
+            cout << " Pay you Fees first then your admission is done \n";
+            Students.payYourFees();
             cout << " your roll no is : ";
             Students.getRollNo();
+            printdash();
+            printdash();
             
           
             
             while(true)
             { 
+                system("CLS");
+                system("CLS");
+
                 cout << "\n check your information which you provide to us \n";
             cout << " if you want to change something so press y " <<endl  ;
 
@@ -423,18 +489,24 @@ int main()
             
             printSteric();
             
+
+            cout << "\n check your information which you provide to us \n";
+            cout << " if you want to change something so press y " << endl;
             cin >> ch;
             switch (ch)
             {
                 case 'y':
 				{	
+                   
+                    system("CLS");
+                    system("CLS");
+
 					Students.setStudentPersonelInformation();
 					Students.getPreviousRecord();
 					Students.setClass();
 					Students.setSection();
-					Students.payedFees();
-					cout << " your roll no is : ";
-					Students.getRollNo();
+					Students.payYourFees();
+				
 					break;
                 }
 
@@ -447,7 +519,6 @@ int main()
             }
             }
 
-            Students.showStudentPersonelInformation();
             
 
 
@@ -461,6 +532,7 @@ int main()
         cout << "\n do you want to recall this program \n if yes than \" press y \" otherwise \"press n \"" << endl;
         cin >> ch;
 
+     
     } while (ch == 'y' || ch == 'Y');
    
     
