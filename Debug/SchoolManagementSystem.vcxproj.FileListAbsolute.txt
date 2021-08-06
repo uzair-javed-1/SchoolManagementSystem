@@ -1,3 +1,4 @@
 C:\Users\Front\source\repos\SchoolManagementSystem\Debug\SchoolManagementSystem.exe
 D:\uzair projects\school system\SchoolManagementSystem\Debug\SchoolManagementSystem.exe
 D:\uzair javed\CPlusPlusProject\New folder\SchoolManagementSystem\Debug\SchoolManagementSystem.exe
+E:\Git Projects\SchoolManagementSystem\SchoolManagementSystem\Debug\SchoolManagementSystem.exe
