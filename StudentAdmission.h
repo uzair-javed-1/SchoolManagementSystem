@@ -11,8 +11,8 @@ private:
 	int age;
 	char gender;
 	string sex;
-	double phone_no[15];
-	string address[size_max];
+	double phone_no;
+	string address;
 
 	// for  previous class marks
 	int previousClassMarks;
@@ -38,7 +38,7 @@ public:
 		else
 		{ 
 			sex = " Female ";
-		}
+			}
 		cout << " Enter your address  : ";
 		getline(cin, address);
 

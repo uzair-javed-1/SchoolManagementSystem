@@ -6,7 +6,7 @@ enum your_classes { one, two, three, four, five, sex, seven, eight, nine, ten };
 const unsigned int classes = 10;
 enum subjects { English, Urdu, Math, Chemistry, Computer, Drawing, Pysics, GeneralScience };
 const unsigned int totalMarks = 100;
-int n = 0;
+
 const int size_max = 30;
 using namespace std;
 

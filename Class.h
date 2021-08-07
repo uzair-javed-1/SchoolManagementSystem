@@ -2,13 +2,13 @@
 class Class {
 private:
 	unsigned int  class_no;
-	unsigned  int rollno[max_students_class];
-	double fees[4]; // fees maximum amount to store
-
-
-
-protected:
+	unsigned  int rollno;
+	double fees; // fees maximum amount to store
 	sections section = A;
+	
+
+	public:
+		
 	void setClass()
 	{
 
@@ -18,11 +18,12 @@ protected:
 		do {
 			if (class_no < classes)
 			{
-				cout << "\n you are applying for class " << class_no << endl;
+				cout << "\n you are applying for class " <<  setw(4) << setiosflags(ios::fixed) << class_no << endl;
 				cout << " lets fill application process " << endl;
 				break;
 			}
 			else {
+
 				cout << " you can get admission in only 1 to 10 classes \n ";
 				cout << "please choose from 1 to 10 \n ";
 				cin >> class_no;
@@ -40,102 +41,140 @@ protected:
 	}
 
 	//
-	sections setSection()
+	void setSection()
 	{
+	
 		while (true)
 		{
-			if (n <= max_students_class && section == A)
+			if (section == A && rollno <= max_students_class)
 			{
-				if (n > 4) // change 40 to 4 for testing purpose
+				if (rollno > 4) // change 40 to 4 for testing purpose
 				{
 					section = B;
-					n = 1;
+					rollno = 1;
 					break;
 				}
 				else
 				{
 					section = A;
-					n++;
+					rollno++;
+					if (rollno == 5)
+					{
+						rollno = 1;
+						break;
+					
+					}
 
 
 				}
 
 			}
-			else  if (n > max_students_class && section == A)
+			else  if ( section == B && rollno <= max_students_class)
 			{
-				if (n > 4)
+				if (rollno > 4)
 				{
 					section = C;
-					n = 1;
+					rollno = 1;
 					break;
 				}
 				else
 				{
 					section = B;
-					n++;
+					rollno++;
+					if (rollno == 5)
+					{
+						rollno = 1;
+
+						break;
+					}
 				}
 			}
-			else if (n > max_students_class && section == B)
+			else if (section == B && rollno <= max_students_class)
 			{
-				if (n > 4)
+				if (rollno > 4)
 				{
 					section = D;
-					n = 1;
+					rollno = 1;
 					break;
 				}
 				else
 				{
 					section = C;
-					n++;
+					rollno++;
+					if (rollno == 5)
+					{
+						rollno = 1;
+
+						break;
+					}
 				}
 			}
-			else if (n > max_students_class && section == C)
+			else if (section == C && rollno <=  max_students_class )
 			{
-				if (n > 4)
+				if (rollno > 4)
 				{
 					section = E;
-					n = 1;
+					rollno = 1;
 					break;
 				}
 				else
 				{
 					section = D;
-					n++;
+					rollno++;
+					if (rollno == 5)
+					{
+						rollno = 1;
+						break;
+						
+					}
 				}
 			}
-			else if (n > max_students_class && section == D)
+			else if (section == D && rollno <= max_students_class )
 			{
-				if (n > 4)
+				if (rollno > 4)
 				{
 					section = F;
-					n = 1;
+					rollno = 1;
 					break;
 				}
 				else
 				{
 					section = E;
-					n++;
+					rollno++;
+					if (rollno == 5)
+					{
+						rollno = 1;
+						break;
+
+					}
+					
 				}
 
 			}
-			else if (n > max_students_class && section == E)
+			else if (section == E && rollno <= max_students_class)
 			{
-				if (n > 4)
+				if (rollno > 4)
 				{
 					section = G;
-					n = 1;
+					rollno = 1;
 					break;
 				}
 				else
 				{
 					section = F;
-					n++;
+					rollno++;
+					if (rollno == 5)
+					{
+						rollno = 1;
+						break;
+
+					}
 				}
 
 			}
-			else if (n > max_students_class && section == F)
+			else if (section == F && rollno <= max_students_class)
 			{
-				if (n > 4)
+				if (rollno > 4)
 				{
 
 					cout << " you can't get admission now \n sorry , because seats are full  \n";
@@ -145,11 +184,18 @@ protected:
 				else
 				{
 					section = G;
-					n++;
+					rollno++;
+					if (rollno == 5)
+					{
+						rollno = rollno - 1;
+						break;
+
+					}
+					
 				}
 
 			}
-			return section;
+			
 
 		}//for while 
 
@@ -197,9 +243,9 @@ protected:
 
 	//
 
-	int getRollNo()
+	int getRollNo(int roll_no_user)
 	{
-		return rollno[n] = n;
+		return rollno = roll_no_user;
 	}
 
 
@@ -209,17 +255,17 @@ protected:
 	{
 		cout << "Pay your fees first \" 5000 rs \" to get admission \n";
 		cout << "Enter amount : ";
-		cin >> fees[n];
+		cin >> fees;
 
 	}
 
 	//
 	void payedFees()
 	{
-		cout << " Thanks for paying fees : " << fees[n] << endl;
-		cout << "\n your admission process is done " << " in class :" << class_no;
-		cout << "\n classes start from next week \n ";
-		cout << "\n We will happy to see you in class : " << class_no << endl;
+		cout << setw(30) << setw(30)<<  " Thanks for paying fees : "  << setw(4) << setiosflags(ios::fixed) << fees<< endl;
+		cout << setw(30) << "\n your admission process is done in class : " << setw(4) << setiosflags(ios::fixed) << class_no;
+		cout << setw(30) << "\n classes start from next week \n ";  
+		cout << setw(30) << "\n We will happy to see you in class : "   << setw(4) << setiosflags(ios::fixed) << class_no << endl;
 
 
 
