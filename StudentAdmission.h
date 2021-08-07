@@ -1,5 +1,6 @@
 #pragma once
 ////////////////////
+using namespace std;
 // for student personal information 
 class StudentAdmission : public Class
 {
@@ -12,12 +13,13 @@ private:
 	char gender;
 	string sex;
 	double phone_no;
-	string address;
+	char address[size_max];
 
 	// for  previous class marks
 	int previousClassMarks;
 	int previousClass;
 	char passingGrade;
+
 
 public:
 	void setStudentPersonelInformation()
@@ -40,8 +42,7 @@ public:
 			sex = " Female ";
 			}
 		cout << " Enter your address  : ";
-		getline(cin, address);
-
+		cin >> address;
 		cout << " Enter your phone no or fathers mobile no : ";
 		cin >> phone_no;
 
@@ -54,7 +55,7 @@ public:
 		cout << "  Last name  : " << lname << endl;
 		cout << "  Age : " << age << endl;
 		cout << "  Gender : " << sex << endl;
-		cout << "  phone _no : " << phone_no << endl;
+		cout << "  phone no : " << phone_no << endl;
 		cout << "  Address : " << address << endl;
 	}
 

@@ -1,6 +1,6 @@
 // SchoolManagementSystem.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
+using namespace std;
 #include <iostream>
 #include<iomanip>
 #include <cstdlib>
@@ -8,9 +8,11 @@
 #include "GlobalVariableandFunctions.h"
 #include "Class.h"
 #include "StudentAdmission.h"
+#include "Signin.h"
+
 
 #include "Management.h"
-using namespace std;
+
 
 
 
@@ -19,16 +21,16 @@ using namespace std;
 int main()
 {
    
-    char ch;
-    string input;
-    int rollno = 1;
+    char ch='y';
+   char input='1';
+    int rollno = 0;
     StudentAdmission Students[28];
  
     do
     {
-    system("CLS");
-  
-        
+        system("CLS");
+
+
         cout << endl;
 
         /// /// ////to print statements to show user what to do? /// /// ///
@@ -44,133 +46,125 @@ int main()
 
         /// /// //// /// /// ///
         cout << "\b\" press 1 or 2 or 3 \" \n";
-        cin >> input;
+       std:: cin >> input;
 
-        if(input == "1")
+
+        if (input == '1')
         {
             system("CLS");
-           
+
 
             cout << " you are on Administration portal ";
 
 
         }
-        else if( input == "2")
-        { 
+        else if (input == '2')
+        {
             system("CLS");
-          
+
 
             cout << " you are on student portal ";
         }
 
-        else if (input == "3" )
+        else if (input == '3')
         {
+
             rollno++;
-            system("CLS");
-           
-			printdash();
-			printSteric();
-    
 
-            cout << " you are on Sign up  page \n  ";
-			printSteric();
-            cout << endl;
-            printdash();
-            cout << " input what we want you to enter : so lets start \n\n \n ";
-            
-            
-            cout << " Enter your personal Information \n";
-            printSteric();
-            cout << endl;
-            Students[rollno].setStudentPersonelInformation();
-            printSteric();
-
-            cout << "\nEnter your Previous Record\n";
-            cout << endl;
-            Students[rollno].getPreviousRecord();
-
-            printSteric();
-            cout << endl;
-
-            Students[rollno].setClass();
-            Students[rollno].setSection();
-            printdash();
-            cout << endl;
-            cout << " Pay you Fees first then your admission is done \n";
-            Students[rollno].payYourFees();
-            cout << " your roll no is : ";
-            Students[rollno].getRollNo(rollno);
-            printdash();
-            printdash();
-            
-          
-            
-            while(true)
-            { 
-                system("CLS");
+            do {
                 system("CLS");
 
-                cout << "\n check your information which you provide to us \n";
-            cout << " if you want to change something so press y " <<endl  ;
 
-            cout << endl;
-            cout<< endl;
-            printdash();
-            Students[rollno].showStudentPersonelInformation();
-            Students[rollno].showPreviousRecord();
-            Students[rollno].payedFees();
-            cout << " \n section is "; Students[rollno].showSection();
-            cout << "\n your roll no is : " << Students[rollno].getRollNo() << endl;
+                printdash();
+                printSteric();
+
+
+                cout << " you are on Sign up  page \n  ";
+                printSteric();
+                cout << endl;
+                printdash();
+                cout << " input what we want you to enter : so lets start \n\n \n ";
+
+
+                cout << " Enter your personal Information \n";
+                printSteric();
+                cout << endl;
+                Students[rollno].setStudentPersonelInformation();
+                printSteric();
+
+                cout << "\nEnter your Previous Record\n";
+                cout << endl;
+                Students[rollno].getPreviousRecord();
+
+                printSteric();
+                cout << endl;
+
+                Students[rollno].setClass();
+                Students[rollno].setSection();
+                printdash();
+                cout << endl;
+                cout << " Pay you Fees first then your admission is done \n";
+                Students[rollno].payYourFees();
+                cout << " your roll no is : "<< Students[rollno].getRollNo(rollno);
+                cout << endl << endl;
+                Students[rollno].signup();
+                cout << endl;
+                printdash();
+                printdash();
+
+
+                do {
+					system("CLS");
+
+                    
+                    cout << "\n check your information what provide to us \n ";
             
-            printSteric();
-            
 
-            cout << "\n check your information which you provide to us \n";
-            cout << " if you want to change something so press y " << endl;
-            cin >> ch;
-            switch (ch)
-            {
-                case 'y':
-				{	
-                   
-                    system("CLS");
-                   
 
-					Students[rollno].setStudentPersonelInformation();
-					Students[rollno].getPreviousRecord();
-					Students[rollno].setClass();
-					Students[rollno].setSection();
-					Students[rollno].payYourFees();
-				
-					break;
-                }
+                    printdash();
+                    printdash();
 
-                case 'n':
-                {
-                    break;
-                }
-            
-              
-            }// switch close body
-            }// while body close
-                 
+
+                    cout << endl;
+                    printdash();
+                    Students[rollno].showStudentPersonelInformation();
+                    Students[rollno].showPreviousRecord();
+                    Students[rollno].payedFees();
+                    cout << " \n section is "; Students[rollno].showSection();
+                    cout << "\n your roll no is : " << Students[rollno].getRollNo(rollno) << endl;
+
+
+                    cout << endl;
+
+                    cout << "if you want to re change this so press y";
+                    std::cin >> ch;
+
+                } while (ch != 'y' || ch != 'Y');
+
+
+        
+
+            } while (ch == 'y' || ch == 'Y'); // upper do while loop to show what you input
+
 
 
         } // else if body close
-        else if ( input.find(";-=987654abcdefghijklmnopqrstuvwxyz")==0)
-              
-        { 
-            cout <<"\n you entered wrong number again press \" 1  2  3 \"  : " <<endl;
+
+
+        else
+
+        {
+            std::cout << "\n you entered wrong number again press \" 1  2  3 \"  : " << endl;
+
            
-        }
-	
+        } //else close
 
-        cout << "\n do you want to recall this program \n if yes than \" press y \" otherwise \"press n \"" << endl;
-        cin >> ch;
-         
 
-     
-    } while (ch == 'y' || ch == 'Y');
+		cout << "\n do you want to recall this program \n if yes than \" press y \" otherwise \"press n \"" << endl;
+	        std::	cin >> ch;
+   
+         }  while (ch == 'y' || ch == 'Y'); // to make program again and again
+      
    
     
     return 0;

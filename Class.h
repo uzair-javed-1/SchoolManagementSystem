@@ -1,10 +1,22 @@
 #pragma once
+using namespace std;
 class Class {
 private:
 	unsigned int  class_no;
 	unsigned  int rollno;
 	double fees; // fees maximum amount to store
 	sections section = A;
+
+protected:
+	/// for signup
+	string login_id;
+	char login_password[17];
+	string email;
+
+	string login_forgot;
+	string email_to_store_password;
+
+	//
 	
 
 	public:
@@ -41,163 +53,49 @@ private:
 	}
 
 	//
-	void setSection()
+	sections setSection()
 	{
 	
-		while (true)
-		{
-			if (section == A && rollno <= max_students_class)
-			{
-				if (rollno > 4) // change 40 to 4 for testing purpose
-				{
-					section = B;
-					rollno = 1;
-					break;
-				}
-				else
+		
+				if (rollno <= 4) // change 40 to 4 for testing purpose
 				{
 					section = A;
-					rollno++;
-					if (rollno == 5)
-					{
-						rollno = 1;
-						break;
-					
-					}
-
-
+			
+				
 				}
-
-			}
-			else  if ( section == B && rollno <= max_students_class)
-			{
-				if (rollno > 4)
-				{
-					section = C;
-					rollno = 1;
-					break;
-				}
-				else
+				else if (rollno <= 8)
 				{
 					section = B;
-					rollno++;
-					if (rollno == 5)
-					{
-						rollno = 1;
+				}
 
-						break;
-					}
-				}
-			}
-			else if (section == B && rollno <= max_students_class)
-			{
-				if (rollno > 4)
-				{
-					section = D;
-					rollno = 1;
-					break;
-				}
-				else
-				{
+					else if (rollno <= 12)
+					{
+					
 					section = C;
-					rollno++;
-					if (rollno == 5)
-					{
-						rollno = 1;
+				}
+					
+					else if (rollno <= 16)
+				{
 
-						break;
-					}
-				}
-			}
-			else if (section == C && rollno <=  max_students_class )
-			{
-				if (rollno > 4)
-				{
-					section = E;
-					rollno = 1;
-					break;
-				}
-				else
-				{
 					section = D;
-					rollno++;
-					if (rollno == 5)
-					{
-						rollno = 1;
-						break;
-						
-					}
 				}
-			}
-			else if (section == D && rollno <= max_students_class )
-			{
-				if (rollno > 4)
+					else if (rollno <= 20)
 				{
-					section = F;
-					rollno = 1;
-					break;
-				}
-				else
-				{
+
 					section = E;
-					rollno++;
-					if (rollno == 5)
-					{
-						rollno = 1;
-						break;
-
-					}
-					
 				}
+					else if (rollno <= 24)
+				{
 
-			}
-			else if (section == E && rollno <= max_students_class)
-			{
-				if (rollno > 4)
-				{
-					section = G;
-					rollno = 1;
-					break;
-				}
-				else
-				{
 					section = F;
-					rollno++;
-					if (rollno == 5)
-					{
-						rollno = 1;
-						break;
-
-					}
 				}
-
-			}
-			else if (section == F && rollno <= max_students_class)
-			{
-				if (rollno > 4)
-				{
-
-					cout << " you can't get admission now \n sorry , because seats are full  \n";
-					cout << " you can take admission in next time . Best of luck \n  \n";
-
-				}
-				else
+				else if (rollno<=28)
 				{
 					section = G;
-					rollno++;
-					if (rollno == 5)
-					{
-						rollno = rollno - 1;
-						break;
-
-					}
-					
 				}
 
-			}
-			
 
-		}//for while 
+				return section;
 
 	} //function body
 
@@ -262,17 +160,48 @@ private:
 	//
 	void payedFees()
 	{
-		cout << setw(30) << setw(30)<<  " Thanks for paying fees : "  << setw(4) << setiosflags(ios::fixed) << fees<< endl;
+		cout << setw(30) << setw(30) << " Thanks for paying fees : " << setw(4) << setprecision(1) << fees << endl;
 		cout << setw(30) << "\n your admission process is done in class : " << setw(4) << setiosflags(ios::fixed) << class_no;
 		cout << setw(30) << "\n classes start from next week \n ";  
 		cout << setw(30) << "\n We will happy to see you in class : "   << setw(4) << setiosflags(ios::fixed) << class_no << endl;
 
 
-
-
 	}
 
+	void signup();
+	void forgotPassword();
 
 	//
 
 };
+
+void Class::signup()
+{
+	login_id = "1421" +  '315' + rollno;
+	cout << " Enter your password ";
+	cin >> login_password;
+
+	cout << endl << endl;
+	cout << " Your Password is  : " << login_password;
+	cout << "\n store in the safe place or write it on your dairy  : " << endl;
+
+
+}
+
+
+void Class::forgotPassword()
+{
+
+	cout << " enter your login id :";
+	cin >> login_forgot;
+	if (login_id == login_id)
+	{
+		cout << " enter your email :";
+		cin >> email_to_store_password;
+		if (email_to_store_password == email)
+		{
+			signup();
+		}
+	}
+
+}
